@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mentions légales du site WayHome.">
+  <title>Mentions légales | WayHome</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="WayHome, retour à l'accueil">
+        <img src="assets/logo.png" alt="Logo WayHome" width="150" height="34">
+      </a>
+      <a href="index.html" class="btn btn-outline btn-small">Retour à l'accueil</a>
+    </div>
+  </header>
+
+  <main id="contenu" class="section">
+    <div class="container legal">
+
+      <h1>Mentions légales</h1>
+
+      <!-- Éditeur du site -->
+      <h2>Éditeur du site</h2>
+      <p>
+        Le site WayHome est édité par <strong>[NOM DE LA SOCIÉTÉ]</strong>,
+        [FORME JURIDIQUE] au capital de [MONTANT] €,
+        immatriculée au Registre du Commerce et des Sociétés de [VILLE] sous le numéro [SIREN / SIRET].
+      </p>
+      <p>
+        Siège social : [ADRESSE COMPLÈTE].<br>
+        Téléphone : [NUMÉRO].<br>
+        Email : [ADRESSE EMAIL DE CONTACT].
+      </p>
+      <p>Directeur de la publication : [NOM ET PRÉNOM].</p>
+      <p>Numéro de TVA intracommunautaire : [NUMÉRO, si applicable].</p>
+
+      <!-- Hébergement -->
+      <h2>Hébergement</h2>
+      <p>
+        Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis
+        (<a href="https://pages.github.com" rel="noopener">pages.github.com</a>).
+      </p>
+
+      <!-- Propriété intellectuelle -->
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus du site (textes, logo, mise en page, éléments graphiques) est protégé par le droit de la propriété intellectuelle.
+        Toute reproduction, même partielle, sans autorisation écrite préalable de [NOM DE LA SOCIÉTÉ] est interdite.
+      </p>
+
+      <!-- Données personnelles -->
+      <h2>Données personnelles</h2>
+      <p>
+        Les informations transmises via le formulaire de contact sont utilisées uniquement pour répondre à votre demande.
+        Elles ne sont ni vendues ni transmises à des tiers.
+        Conformément au Règlement général sur la protection des données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+        Pour l'exercer, écrivez-nous à [ADRESSE EMAIL DE CONTACT].
+      </p>
+
+      <!-- Cookies -->
+      <h2>Cookies</h2>
+      <p>
+        Ce site n'utilise aucun cookie de suivi publicitaire. [À adapter si vous ajoutez un outil de mesure d'audience.]
+      </p>
+
+      <!-- Responsabilité -->
+      <h2>Limitation de responsabilité</h2>
+      <p>
+        Les informations présentées sur ce site sont données à titre indicatif.
+        [NOM DE LA SOCIÉTÉ] s'efforce de les maintenir à jour, sans pouvoir garantir leur exactitude complète.
+      </p>
+
+      <p class="legal-date">Dernière mise à jour : [DATE].</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo WayHome" width="130" height="30" loading="lazy">
+        <p>Votre partenaire immobilier de confiance.</p>
+      </div>
+      <nav aria-label="Liens du pied de page">
+        <ul class="footer-links">
+          <li><a href="index.html#recherche">Louer</a></li>
+          <li><a href="index.html#a-propos">Qui sommes-nous</a></li>
+          <li><a href="index.html#questions">Questions-réponses</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+      <p class="copyright">&copy; <span id="annee"></span> WayHome. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Année courante dans le footer
+    document.getElementById('annee').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

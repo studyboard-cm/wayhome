@@ -955,3 +955,27 @@ p {
 .section:not(.section-alt) {
   border-top: 1px solid var(--couleur-bordure);
 }
+
+/* ---------- Page Mentions légales ---------- */
+.legal {
+  max-width: 800px;
+}
+
+.legal h1 {
+  margin-bottom: 32px;
+}
+
+.legal h2 {
+  font-size: 1.3rem;
+  margin-top: 36px;
+}
+
+.legal p {
+  color: var(--couleur-texte);
+}
+
+.legal-date {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: var(--couleur-texte-doux);
+}
