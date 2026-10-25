@@ -1,0 +1,418 @@
+/* =========================================================
+   WayHome : styles de la page d'accueil
+   À charger après css/style.css
+   ========================================================= */
+
+/* ---------- Variables complémentaires ---------- */
+:root {
+  /* Corail de la marque et sa version plus foncée, pour un contraste suffisant
+     avec le texte blanc (AA) */
+  --couleur-accent: #FF4D6D;
+  --couleur-accent-fonce: #D92D4A;
+  --couleur-accent-doux: #FF8FA3;
+}
+
+/* ---------- Header ---------- */
+/* Le header est en grille : logo | menu centré | actions */
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.logo img {
+  height: 34px;
+  width: auto;
+}
+
+.main-nav {
+  justify-self: center;
+}
+
+.main-nav ul {
+  gap: 36px;
+}
+
+.main-nav a:not(.btn) {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Icônes favoris et alertes */
+.icone-action {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--couleur-principale);
+  text-decoration: none;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.icone-action:hover {
+  background: var(--couleur-fond-alt);
+  transform: translateY(-2px);
+}
+
+/* Bouton « Se connecter » en corail */
+.btn-accent {
+  background: var(--couleur-accent-fonce);
+  color: #fff;
+  border-radius: 8px;
+  margin-left: 8px;
+}
+
+.btn-accent:hover {
+  background: #B82340;
+  color: #fff;
+}
+
+/* ---------- Hero : deux colonnes ---------- */
+.accueil {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(48px, 7vw, 96px);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(17, 38, 74, 0.07), transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, var(--couleur-fond-alt) 100%);
+}
+
+.accueil-grille {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.accueil h1 {
+  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+/* Trait corail sous un mot-clé, comme l'accent du logo */
+.souligne {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.souligne::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 0;
+  bottom: 0.08em;
+  height: 0.28em;
+  background: var(--couleur-accent);
+  border-radius: 4px;
+  z-index: -1;
+  transform: skewX(-12deg);
+  transform-origin: left;
+  animation: tracer 1s 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.accueil-lead {
+  font-size: 1.15rem;
+  color: var(--couleur-texte-doux);
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+
+/* ---------- Bloc de recherche ---------- */
+.recherche {
+  max-width: 640px;
+}
+
+/* Onglets : bleu marine, onglet actif en blanc */
+.onglets {
+  display: flex;
+  gap: 4px;
+  padding-left: 8px;
+}
+
+.onglet {
+  flex: 1 1 0;
+  padding: 14px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--couleur-principale);
+  border: 0;
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: background-color var(--transition), opacity var(--transition), color var(--transition);
+}
+
+.onglet:hover {
+  opacity: 1;
+}
+
+.onglet[aria-selected="true"] {
+  background: #fff;
+  color: var(--couleur-principale);
+  opacity: 1;
+  box-shadow: 0 -4px 12px rgba(17, 38, 74, 0.06);
+}
+
+/* Panneau de recherche : carte blanche avec ombre douce */
+.recherche-panneau {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+  background: #fff;
+  padding: 24px;
+  border-radius: 0 16px 16px 16px;
+  box-shadow: var(--ombre-forte);
+}
+
+.recherche-panneau .champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.recherche-panneau label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--couleur-texte-doux);
+}
+
+.recherche-panneau input,
+.recherche-panneau select {
+  width: 100%;
+  font: inherit;
+  padding: 11px 12px;
+  color: var(--couleur-texte);
+  background: #fff;
+  border: 1.5px solid var(--couleur-bordure);
+  border-radius: 10px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.recherche-panneau input:focus,
+.recherche-panneau select:focus {
+  outline: none;
+  border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 4px rgba(17, 38, 74, 0.12);
+}
+
+/* Bouton Rechercher en corail */
+.btn-recherche {
+  font: inherit;
+  font-weight: 700;
+  padding: 12px 22px;
+  color: #fff;
+  background: var(--couleur-accent-fonce);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.btn-recherche:hover {
+  background: #B82340;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(217, 45, 74, 0.3);
+}
+
+.btn-recherche:active {
+  transform: translateY(0);
+}
+
+/* ---------- Colonne visuelle ---------- */
+.accueil-visuel {
+  position: relative;
+}
+
+.illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: flottement 7s ease-in-out infinite;
+}
+
+/* Couleurs de l'illustration (classes sur les formes SVG) */
+.ill-trait {
+  stroke: var(--couleur-principale);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.ill-mur {
+  fill: #fff;
+  stroke: var(--couleur-principale);
+  stroke-width: 4;
+}
+
+.ill-toit {
+  fill: var(--couleur-principale);
+}
+
+.ill-porte {
+  fill: var(--couleur-principale);
+}
+
+.ill-fenetre {
+  fill: var(--couleur-accent-doux);
+  stroke: var(--couleur-principale);
+  stroke-width: 3;
+}
+
+.ill-accent {
+  fill: var(--couleur-accent);
+}
+
+.ill-accent-doux {
+  fill: var(--couleur-accent-doux);
+}
+
+.ill-tronc {
+  fill: var(--couleur-principale);
+}
+
+/* Les éléments de l'illustration apparaissent légèrement en décalé */
+.ill-maison,
+.ill-arbre,
+.ill-immeuble {
+  animation: monter 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.ill-arbre { animation-delay: 0.15s; }
+.ill-immeuble { animation-delay: 0.3s; }
+
+/* Encart d'éligibilité, en superposition */
+.encart-eligibilite {
+  position: absolute;
+  top: 6%;
+  right: 0;
+  max-width: 230px;
+  padding: 18px 20px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: var(--ombre-forte);
+  transition: transform var(--transition);
+}
+
+.encart-eligibilite:hover {
+  transform: translateY(-4px);
+}
+
+.encart-titre {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--couleur-principale);
+  margin-bottom: 10px;
+}
+
+.encart-lien {
+  font-weight: 700;
+  color: var(--couleur-accent-fonce);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.encart-lien:hover,
+.encart-lien:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+/* ---------- Animations spécifiques ---------- */
+@keyframes tracer {
+  from { transform: skewX(-12deg) scaleX(0); }
+  to   { transform: skewX(-12deg) scaleX(1); }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablette : header plus compact, colonnes empilées */
+@media (max-width: 1100px) {
+  .header-inner {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .main-nav ul {
+    gap: 22px;
+  }
+
+  .main-nav a:not(.btn) {
+    font-size: 0.95rem;
+  }
+
+  .recherche-panneau {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-recherche {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .accueil-grille {
+    grid-template-columns: 1fr;
+  }
+
+  .accueil-visuel {
+    max-width: 520px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+/* Mobile : menu hamburger et formulaire en une colonne */
+@media (max-width: 760px) {
+  .header-inner {
+    grid-template-columns: auto auto;
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  .main-nav {
+    justify-self: stretch;
+  }
+
+  .onglet {
+    font-size: 0.9rem;
+    padding: 12px 8px;
+  }
+
+  .recherche-panneau {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .encart-eligibilite {
+    position: static;
+    margin-top: 16px;
+    max-width: none;
+  }
+}
+
+/* Très petit écran */
+@media (max-width: 420px) {
+  .onglets {
+    padding-left: 0;
+  }
+}

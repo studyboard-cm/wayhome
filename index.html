@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Métadonnées de base : encodage, responsive, description SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WayHome : location, achat et programmes neufs. Trouvez le logement qui vous correspond et contactez notre équipe.">
+  <title>WayHome | Trouvez le logement qui vous ressemble</title>
+
+  <!-- Feuilles de style : base, puis page d'accueil -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- Lien d'évitement : accès direct au contenu au clavier -->
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" id="haut">
+    <div class="container header-inner">
+
+      <!-- Logo à gauche -->
+      <a href="#haut" class="logo" aria-label="WayHome, retour en haut de la page">
+        <img src="assets/logo.png" alt="Logo WayHome" width="150" height="34">
+      </a>
+
+      <!-- Menu centré -->
+      <nav class="main-nav" id="menu-principal" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#recherche">Louer</a></li>
+          <li><a href="#recherche">Acheter</a></li>
+          <li><a href="#a-propos">Qui sommes-nous</a></li>
+          <li><a href="#questions">Questions-réponses</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions à droite : favoris, alertes, connexion -->
+      <div class="header-actions">
+        <a href="#contact" class="icone-action" aria-label="Mes favoris">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.3l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.8z"/>
+          </svg>
+        </a>
+        <a href="#contact" class="icone-action" aria-label="Mes alertes">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-accent btn-small">Se connecter</a>
+      </div>
+
+      <!-- Bouton hamburger (mobile uniquement) -->
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span class="burger" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="accueil" aria-labelledby="titre-hero">
+      <div class="container accueil-grille">
+
+        <!-- Colonne gauche : titre, texte et recherche -->
+        <div class="accueil-texte reveal">
+          <h1 id="titre-hero">
+            Trouvez le logement qui vous <span class="souligne">ressemble</span>
+          </h1>
+          <p class="accueil-lead">
+            Location, achat ou programmes neufs : retrouvez nos offres sélectionnées
+            et contactez directement notre équipe.
+          </p>
+
+          <!-- Bloc de recherche à onglets -->
+          <div class="recherche" id="recherche">
+            <div class="onglets" role="tablist" aria-label="Type de projet">
+              <button type="button" role="tab" id="onglet-acheter" class="onglet"
+                      aria-selected="false" aria-controls="panneau-recherche" tabindex="-1" data-type="achat">
+                Acheter
+              </button>
+              <button type="button" role="tab" id="onglet-louer" class="onglet"
+                      aria-selected="true" aria-controls="panneau-recherche" tabindex="0" data-type="location">
+                Louer
+              </button>
+              <button type="button" role="tab" id="onglet-neuf" class="onglet"
+                      aria-selected="false" aria-controls="panneau-recherche" tabindex="-1" data-type="neuf">
+                Programmes neufs
+              </button>
+            </div>
+
+            <form class="recherche-panneau" id="panneau-recherche" role="tabpanel" aria-labelledby="onglet-louer">
+              <div class="champ champ-ville">
+                <label for="ville">Dans quelle ville ?</label>
+                <input type="text" id="ville" name="ville" placeholder="Ville ou code postal" autocomplete="address-level2">
+              </div>
+
+              <div class="champ">
+                <label for="type-bien">Type de bien</label>
+                <select id="type-bien" name="type-bien">
+                  <option value="">Tous</option>
+                  <option value="appartement">Appartement</option>
+                  <option value="maison">Maison</option>
+                </select>
+              </div>
+
+              <div class="champ">
+                <label for="pieces">Nombre de pièces</label>
+                <select id="pieces" name="pieces">
+                  <option value="">Indifférent</option>
+                  <option value="1">1 pièce</option>
+                  <option value="2">2 pièces</option>
+                  <option value="3">3 pièces</option>
+                  <option value="4">4 pièces et plus</option>
+                </select>
+              </div>
+
+              <div class="champ">
+                <label for="budget">Budget max (€)</label>
+                <input type="number" id="budget" name="budget" min="0" step="1000" placeholder="ex. 900">
+              </div>
+
+              <button type="submit" class="btn-recherche">Rechercher</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Colonne droite : illustration et encart d'éligibilité -->
+        <div class="accueil-visuel reveal">
+          <!-- Illustration vectorielle originale, décorative -->
+          <svg class="illustration" viewBox="0 0 480 380" role="img" aria-hidden="true" focusable="false">
+            <!-- Soleil -->
+            <circle cx="390" cy="70" r="34" class="ill-accent" />
+            <!-- Sol -->
+            <path d="M30 330 Q240 300 460 330" class="ill-trait" fill="none" />
+            <!-- Maison basse -->
+            <g class="ill-maison">
+              <path d="M70 230 L130 180 L190 230 Z" class="ill-toit" />
+              <rect x="82" y="230" width="96" height="100" class="ill-mur" />
+              <rect x="112" y="268" width="36" height="62" class="ill-porte" />
+              <rect x="96" y="250" width="18" height="18" class="ill-fenetre" />
+            </g>
+            <!-- Arbre -->
+            <g class="ill-arbre">
+              <rect x="222" y="260" width="10" height="70" class="ill-tronc" />
+              <circle cx="227" cy="230" r="34" class="ill-accent" />
+              <circle cx="205" cy="250" r="22" class="ill-accent-doux" />
+              <circle cx="250" cy="250" r="22" class="ill-accent-doux" />
+            </g>
+            <!-- Immeuble -->
+            <g class="ill-immeuble">
+              <rect x="300" y="110" width="110" height="220" class="ill-mur" />
+              <rect x="320" y="140" width="22" height="22" class="ill-fenetre" />
+              <rect x="356" y="140" width="22" height="22" class="ill-fenetre" />
+              <rect x="320" y="180" width="22" height="22" class="ill-fenetre" />
+              <rect x="356" y="180" width="22" height="22" class="ill-fenetre" />
+              <rect x="320" y="220" width="22" height="22" class="ill-fenetre" />
+              <rect x="356" y="220" width="22" height="22" class="ill-fenetre" />
+              <rect x="338" y="280" width="34" height="50" class="ill-porte" />
+            </g>
+          </svg>
+
+          <!-- Encart d'éligibilité -->
+          <aside class="encart-eligibilite" aria-labelledby="titre-eligibilite">
+            <p id="titre-eligibilite" class="encart-titre">Vous souhaitez accéder à un logement social ?</p>
+            <a href="#contact" class="encart-lien">Vérifiez votre éligibilité</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section id="services" class="section" aria-labelledby="titre-services">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Nos services</p>
+          <h2 id="titre-services">Un accompagnement complet</h2>
+          <p>Du premier échange à la remise des clés, nous nous occupons de l'essentiel.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>
+            </div>
+            <h3>Location</h3>
+            <p>Sélection de biens vérifiés, visites organisées et aide au dossier de candidature.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M17 6l3 3"/><path d="M14 9l3 3"/></svg>
+            </div>
+            <h3>Achat</h3>
+            <p>Recherche ciblée selon votre budget, négociation et suivi jusqu'à la signature.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Estimation</h3>
+            <p>Évaluation précise de votre bien, basée sur les prix réels du marché local.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Conseil</h3>
+            <p>Un interlocuteur dédié qui répond à vos questions et adapte son accompagnement.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== À PROPOS ===================== -->
+    <section id="a-propos" class="section section-alt" aria-labelledby="titre-apropos">
+      <div class="container about">
+        <div class="about-text reveal">
+          <p class="eyebrow">Qui sommes-nous</p>
+          <h2 id="titre-apropos">Une équipe humaine, au service de vos projets</h2>
+          <p>
+            WayHome a été fondé avec une conviction simple : chaque projet immobilier mérite
+            de l'écoute, de la clarté et des conseils honnêtes.
+          </p>
+          <p>
+            Nos conseillers connaissent leur secteur et prennent le temps de comprendre vos
+            besoins avant de vous proposer la moindre solution.
+          </p>
+          <ul class="checklist">
+            <li>Conseillers joignables rapidement</li>
+            <li>Démarches expliquées étape par étape</li>
+            <li>Aucun engagement pour commencer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CHIFFRES CLÉS ===================== -->
+    <section class="chiffres" aria-labelledby="titre-chiffres">
+      <div class="container">
+        <h2 id="titre-chiffres" class="sr-only">Nos chiffres clés</h2>
+        <div class="chiffres-grille">
+          <div class="chiffre reveal">
+            <span class="stat-number" data-target="500">0</span>
+            <span class="stat-label">clients accompagnés</span>
+          </div>
+          <div class="chiffre reveal">
+            <span class="stat-number" data-target="12">0</span>
+            <span class="stat-label">années d'expérience</span>
+          </div>
+          <div class="chiffre reveal">
+            <span class="stat-number" data-target="98">0</span>
+            <span class="stat-label">% de clients satisfaits</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUESTIONS-RÉPONSES ===================== -->
+    <section id="questions" class="section" aria-labelledby="titre-faq">
+      <div class="container faq">
+        <header class="section-head reveal">
+          <p class="eyebrow">Questions-réponses</p>
+          <h2 id="titre-faq">Vos questions, nos réponses</h2>
+        </header>
+        <details class="faq-item reveal">
+          <summary>Comment savoir si je suis éligible ?</summary>
+          <p>Utilisez le lien « Vérifiez votre éligibilité » ou contactez-nous : nous vous indiquerons les conditions à remplir.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Les frais d'agence sont-ils à ma charge ?</summary>
+          <p>Cela dépend du type de bien et de la transaction. Nous vous communiquons les montants avant tout engagement.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Puis-je créer une alerte pour recevoir les nouvelles offres ?</summary>
+          <p>Oui. Indiquez vos critères dans le formulaire de contact et nous vous tiendrons informé.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===================== TÉMOIGNAGES ===================== -->
+    <section id="temoignages" class="section section-alt" aria-labelledby="titre-temoignages">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Témoignages</p>
+          <h2 id="titre-temoignages">Ils nous ont fait confiance</h2>
+        </header>
+
+        <div class="testimonials">
+          <blockquote class="testimonial reveal">
+            <p>« Une équipe à l'écoute. Ils ont trouvé un appartement correspondant exactement à notre budget. »</p>
+            <footer>— Amina K., locataire</footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p>« Le suivi était impeccable du début à la fin. Je recommande les yeux fermés. »</p>
+            <footer>— Jean-Paul M., acquéreur</footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p>« Estimation rapide et juste. Nous avons vendu notre maison en moins de deux mois. »</p>
+            <footer>— Sophie L., vendeuse</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section" aria-labelledby="titre-contact">
+      <div class="container contact">
+        <div class="contact-text reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="titre-contact">Parlons de votre projet</h2>
+          <p>Laissez-nous vos coordonnées, nous vous répondons sous 24 heures ouvrées.</p>
+          <p><strong>Téléphone :</strong> <a href="tel:+10000000000">+1 000 000 0000</a></p>
+          <p><strong>Email :</strong> <a href="mailto:contact@wayhome.example">contact@wayhome.example</a></p>
+        </div>
+
+        <!-- Formulaire avec validation côté client (js/main.js) -->
+        <form class="contact-form reveal" id="formulaire-contact" novalidate>
+          <div class="field">
+            <label for="nom">Nom complet <span aria-hidden="true">*</span></label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required minlength="2" aria-describedby="erreur-nom">
+            <p class="error" id="erreur-nom" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Adresse email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erreur-email">
+            <p class="error" id="erreur-email" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="telephone">Téléphone (facultatif)</label>
+            <input type="tel" id="telephone" name="telephone" autocomplete="tel" aria-describedby="erreur-telephone">
+            <p class="error" id="erreur-telephone" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="sujet">Votre projet <span aria-hidden="true">*</span></label>
+            <select id="sujet" name="sujet" required aria-describedby="erreur-sujet">
+              <option value="">Choisissez une option</option>
+              <option value="location">Location</option>
+              <option value="achat">Achat</option>
+              <option value="estimation">Estimation</option>
+              <option value="autre">Autre demande</option>
+            </select>
+            <p class="error" id="erreur-sujet" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required minlength="10" aria-describedby="erreur-message"></textarea>
+            <p class="error" id="erreur-message" role="alert"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+          <p class="form-status" id="statut-formulaire" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo WayHome" width="130" height="29" loading="lazy">
+        <p>Votre partenaire immobilier de confiance.</p>
+      </div>
+
+      <nav aria-label="Liens du pied de page">
+        <ul class="footer-links">
+          <li><a href="#recherche">Louer</a></li>
+          <li><a href="#a-propos">Qui sommes-nous</a></li>
+          <li><a href="#questions">Questions-réponses</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </nav>
+
+      <p class="copyright">&copy; <span id="annee"></span> WayHome. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts en fin de body, avec defer -->
+  <script src="js/main.js" defer></script>
+  <script src="js/search.js" defer></script>
+</body>
+</html>
